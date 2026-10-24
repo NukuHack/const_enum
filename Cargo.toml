@@ -1,0 +1,22 @@
+[package]
+name = "const_enum"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+description = "Derive macros for enum <-> primitive and enum <-> string conversions that work in const contexts"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+keywords = ["enum", "const", "derive", "macro", "no_std"]
+categories = ["rust-patterns", "no-std"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1"
+quote = "1"
+syn = { version = "2", features = ["derive", "parsing", "printing", "proc-macro"] }
+
+[dev-dependencies]
+# Property-based tests for the parse/convert laws (see TESTING.md). Dev-only: users of the crate never build it.
+proptest = "1"
